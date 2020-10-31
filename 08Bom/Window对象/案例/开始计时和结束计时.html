@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="start">开始计时</button>
+    <input type="text" class="inp">
+    <button id="end">结束计时</button>
+    <script>
+        var startBtn = document.querySelector("#start");
+        var inp = document.querySelector(".inp");
+        var endBtn = document.querySelector("#end");
+        var count = 0;
+        var t = null;
+
+        //计时函数
+        function startFunction() {
+            count++;
+            inp.value = count;
+        }
+        //结束计时函数
+
+        startBtn.onclick = function() {
+            t = setInterval(startFunction, 1000);
+        }
+        endBtn.onclick = function() {
+            clearInterval(t);
+        }
+    </script>
+</body>
+
+</html>

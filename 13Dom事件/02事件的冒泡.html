@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的冒泡</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>这是li1</li>
+        </ul>
+    </div>
+    <script>
+        //1.获取元素
+        var div = document.querySelector('div');
+        var ul = document.querySelector("ul");
+        var li = document.querySelector("li");
+        //2.给div添加事件
+        div.onclick = function() {
+            alert("这是div元素");
+        };
+        //给ul添加事件
+        ul.onclick = function() {
+            alert("这是ul元素")
+        };
+        //给li添加元素
+        li.onclick = function() {
+            alert("这是li元素")
+        }
+
+        //事件的冒泡是从最具体的元素开始，然后一直到最顶层
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回值为函数的案例</title>
+</head>
+
+<body>
+    <!-- 创建一个对象数组，根据对象中的某一个属性来排序数组 -->
+    <script>
+        // 创建一个对象数组
+        var objArr = [{
+            name: 'zhangsan',
+            age: 30
+        }, {
+            name: 'lisi',
+            age: 29
+        }];
+
+
+        //property表示要根据什么属性来排序
+        function comProperty(property) {
+
+            return function(arg1, arg2) {
+                var value1 = arg1[property];
+                var value2 = arg2[property];
+
+                if (value1 > value2) {
+                    return 1;
+                } else if (value1 < value2) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        }
+
+
+        //根据name属性来排序
+        // objArr.sort(comProperty('name'));
+        // document.write(objArr[0].age);
+
+        //根据age属性来排序
+        objArr.sort(comProperty('age'));
+        document.write(objArr[0].age)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var arr = [2, 4, 1, 6, 12, 8];
+        // arr.sort(compare);
+        // document.write(arr); //1,2,4,6,8,12
+        // //返回值大于0就交换位置
+        // function compare(value1, value2) {
+        //     if (value1 > value2) {
+        //         return 1;
+        //     }
+        //     if (value1 < value2) {
+        //         return -1;
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

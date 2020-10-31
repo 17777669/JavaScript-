@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发送短信验证码</title>
+</head>
+
+<body>
+    <input type="text"><button>发送</button>
+    <script>
+        //1.获取元素
+        var btn = document.querySelector("button");
+        //设置一个事件
+        var time = 10;
+        //2.绑定事件并且添加事件处理程序
+        btn.addEventListener("click", function() {
+            //点击按钮了就使按钮不能再点击
+            btn.disabled = true;
+
+
+            // 设置定时器
+            var timer = setInterval(function() {
+                if (time == 0) {
+                    btn.disabled = false;
+                    btn.innerHTML = "发送";
+                    time = 10;
+
+                    //清楚定时器,在里面可以直接使用timer，定时器是属于window对象的，内部的cleraInterval可以使用该变量
+                    clearInterval(timer);
+                } else {
+                    time--;
+                    btn.innerHTML = `还剩下${time}秒`;
+                }
+
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr;
+        //使用构造函数创建数组
+        //  arr = new Array();
+
+        //如果预先知道数组的长度，可以提前设置好数组的长度
+        // arr = new Array(20);
+        // alert(arr.length);   //20
+
+        //也可以直接给数据
+        // --如果给的是一个数字，则会创建一个长度相等的数组
+        // arr = new Array(2);
+        // alert(arr.length);  //2
+
+        // --如果给的是一个其他类型的值，
+        arr = new Array(true);
+        alert(arr.length); //1
+    </script>
+</body>
+
+</html>

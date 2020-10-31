@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的使用</title>
+</head>
+
+<body>
+    <!-- 任何函数实际上都是Function类型的，函数名实际上只是一个指向函数的指针 -->
+    <script>
+        // 创建一个变量sum,该变量是指向一个函数
+        var sum = function(num) {
+            return num + 100;
+        }
+        document.write(sum(100) + "<br/>"); //200
+
+        // 修改变量sum指针的指向
+        sum = function(num) {
+            return num + 200;
+        }
+        document.write(sum(100)); //300
+    </script>
+</body>
+
+</html>

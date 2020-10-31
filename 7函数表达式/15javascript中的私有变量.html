@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript中的私有变量</title>
+    <script>
+        function createFunction() {
+            //公有成员，外部可以访问
+            this.name = "孙悟空";
+            this.getName = function () {
+                alert(this.name);
+            }
+            // 私有变量，外部不可以访问
+            var i = 0;
+            // 私有函数，外部不可以直接访问
+            function sayHello() {
+                alert("hello world");
+            }
+        }
+
+        var fun = new createFunction();
+        fun.getName();    //孙悟空
+        console.log(fun.name);   //孙悟空
+
+        //不可以直接访问
+        console.log(fun.i);   //undefined
+        fun.sayHello();      //fun.sayHello is not a function
+    </script>
+</head>
+
+<body>
+    <h3>JavaScript中没有私有成员的概念，只有私有变量</h3>
+    <p>JavaScript中没有私有成员的概念，任何实例对象的属性都是公有的，
+        但是有一个私有变量的概念，在函数内部使用var function定义的变量或者函数都是私有变量，
+        函数中的参数，使用var定义的变量，使用function定义的和函数都是私有的变量
+    </p>
+
+</body>
+
+</html>

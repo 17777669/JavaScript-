@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归</title>
+    <script>
+        /*什么式递归函数？
+            递归函数就式在一个函数通过名字调用构成的,如下
+        */
+        function factorial(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                return num * factorial(num - 1);
+            }
+        };
+        // 但是下面将出错
+        //将factorial赋值给anotherFactoral;
+        var anotherFactoral = factorial;
+        //将factorial的引用设置null
+        factorial = null;
+        //出错，因为factorial指针指向的函数为null,
+        // alert(anotherFactoral(4));
+
+        // 修改上面的factorial函数如下：
+        //解决方法：可以使用arguments.call，arguments.call是一个正在指向正在指向的函数的指针，
+        //因此可以用它来实现对函数的递归调用，例如：
+        function factorial(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                //argumguments.callee指向正在执行的函数，用这个代替函数名可以确保无论怎样调用函数都不会
+                //出问题，因此在编写递归函数的时候使用argumens.callee总比函数名更加保险。
+                return num * arguments.callee(num - 1);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

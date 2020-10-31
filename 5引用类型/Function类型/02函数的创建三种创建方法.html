@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的三种创建方法</title>
+</head>
+
+<body>
+    <script>
+        //1.使用字面量表达式
+        var fun1 = function(num) {
+            return 100 + num;
+        }
+
+
+        //2,使用function关键字
+        function fun2(num) {
+            return 200 + num;
+        }
+
+        //3.使用Function构造函数（不推荐）
+        //可以接受任意的参数，但是最后一个会被看成函数体
+        var fun3 = new Function('num', 'return 300+num');
+    </script>
+</body>
+
+</html>

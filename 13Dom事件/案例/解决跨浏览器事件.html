@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 解决跨浏览器事件
+        //创建一个函数,第一个参数是元素，第二个错那湖是是eventType,第三个参数事件处理程序
+        function addEventListener(element, eventType, fn) {
+            //判断element.addEventListener方法是否存在
+            if (element.addEventListener) {
+                element.addEventListener(eventType, fn);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + eventType, fn);
+            } else {
+                //相当于element.onEventType
+                element['on' + eventType] = fn;
+            }
+        }
+    </script>
+</body>
+
+</html>

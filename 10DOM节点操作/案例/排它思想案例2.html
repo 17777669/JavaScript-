@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想案例2-tab切换</title>
+    <style>
+        .warp ul li {
+            float: left;
+            list-style: none;
+            margin-right: 10px;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor: pointer;
+            background-color: palegreen;
+            border-radius: 10px;
+            color: #fff;
+        }
+        
+        .warp ul {
+            overflow: hidden;
+        }
+        
+        .warp_box .item_box {
+            display: none;
+            height: 300px;
+            width: 300px;
+            background-color: pink;
+        }
+        
+        .warp_box .item_box:first-child {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <ul>
+            <li>按钮1</li>
+            <li>按钮2</li>
+            <li>按钮3</li>
+            <li>按钮4</li>
+        </ul>
+        <div class="warp_box">
+            <div class="item_box">盒子1</div>
+            <div class="item_box">盒子2</div>
+            <div class="item_box">盒子3</div>
+            <div class="item_box">盒子4</div>
+        </div>
+    </div>
+</body>
+
+</html>

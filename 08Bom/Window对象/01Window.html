@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window对象</title>
+</head>
+
+<body>
+    <!-- Bom对象的核心是window对象，该对象有两次含义一是代表着访问浏览器的核心，一个是Global对象
+        在全局作用与中声明的变量，函数都会变为window对象的方法
+    -->
+    <script>
+        var a = "12";
+        console.log(a); //12
+        console.log(window.a); //12
+
+        // 直接定义全局变量和在window上定义全局变量的区别
+        //1.直接定义的全局变量是不可以使用delete操作符删除的，而定义在window上的是可以使用delete操作符删除的
+        delete a;
+        console.log(a); //12
+        window.b = 13;
+        delete window.b;
+        console.log(window.b); //undefined
+
+
+
+        //当访问没有声明的变量的时候，直接访问和使用window访问它的返回值不一样
+        //通过window访问未声明的变量它返会undefined
+        console.log(window.c); //undefined
+        console.log(c); //c is no undefined
+    </script>
+</body>
+
+</html>

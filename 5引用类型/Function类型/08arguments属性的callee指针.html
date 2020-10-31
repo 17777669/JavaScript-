@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments对象的callee属性</title>
+</head>
+
+<body>
+    <!-- arguments对象中有一个属性callee，这个属性是指向拥有arguments这个对象的函数，这个属性
+    常用于递归函数 -->
+
+    <script>
+        function factorial(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                // return factorial(num - 1) * num;
+                return arguments.callee(num - 1) * num;
+            }
+        }
+
+        console.log(factorial(3)); //6
+
+
+        //函数名只是一个指向函数的指针，一个函数可以有多个函数名
+        var fact = factorial;
+        console.log(fact(3)); //6
+
+        //上面都没有问题，但是如果把factorial指向设置为null;fact函数就不能正常使用了
+        factorial = null;
+        console.log(fact(3)); //factorial is not a function
+
+        //上面是因为递归中使用到了return factorial(num - 1) * num;这个factorial函数，要
+        //解决的方法就是修改为 return arguments.callee(num - 1) * num;
+    </script>
+</body>
+
+</html>

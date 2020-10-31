@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数中的特权方法2</title>
+    <script>
+        function MyFunction(name) {
+            //获取name变量的方法
+            this.getName = function () {
+                return name;
+            }
+            //设置name变量的方法
+            this.setName = function (value) {
+                name = value;
+            }
+        }
+
+        var fun1 = new MyFunction("孙悟空");
+        console.log(fun1.getName());   //孙悟空
+        // 修改name的值
+        fun1.setName("猪八戒");
+        console.log(fun1.getName());   //猪八戒
+    </script>
+</head>
+
+<body>
+    <!-- 利用私有和特权方法可以隐藏那些不该被直接修改的变量 ，但是有一个缺点就是在构造函数中
+    创建的，每次创建一个实例就会给每个实例创建两个方法-->
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止事件冒泡行为</title>
+</head>
+
+<body>
+    <div>
+        <button>点击我</button>
+    </div>
+    <script>
+        //获取事件对象
+        var btn = document.querySelector("button");
+        var div = document.querySelector("div");
+        var body = document.body;
+        //给3个事件添加事件处理程序,因为点击了一个btn，相当于点击了div，body，由于事件冒泡，三个事件都会触发
+        btn.onclick = function(e) {
+            alert("这是btn");
+            e.stopPropagation(); //stop停止，
+            window.event.cancelBubble = true;
+        };
+        div.onclick = function() {
+            alert("这是div");
+        };
+        body.onclick = function() {
+            alert("这是body");
+        };
+        //如果要阻止这个事件
+    </script>
+</body>
+
+</html>

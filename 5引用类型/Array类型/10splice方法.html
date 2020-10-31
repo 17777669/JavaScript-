@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splice方法</title>
+</head>
+
+<body>
+    <!-- splice(a,b,c):会改变原来的数组，但是它返回一个新的数组，该数组是删除的元素组成的数组，没有删除元素就返回一个空数组
+    a:索引的位置：
+    b:要删除的元素个数
+    c:要插入的元素 -->
+    <script>
+        var arr = [1, 3, 2, 5, 7, 4];
+        //splice方法的用法：
+        //1.删除元素：当splice中只有两个参数的 时候，第一个参数代表着开始的索引的位置，第二个参数代表着哟啊删除的元素个数
+        // arr.splice(1, 2);
+        // document.write(arr); //1，5，7，4
+
+        //2.添加元素：当splice中有三个参数 的时候，第三个以及第三个后面 的表示要替换的元素
+        // arr.splice(1, 2, 9, 7);
+        // document.write(arr); //1,9,7,5,7,4
+
+
+        //3，添加元素：
+        arr.splice(1, 0, 6, 4);
+        document.write(arr); //1,6,4,3,2,5,7,4
+    </script>
+</body>
+
+</html>

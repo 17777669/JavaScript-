@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型和in操作符</title>
+    <script>
+        //有两种方法可以使用in操作符：
+        //1.单独使用
+        //2.for in
+
+
+        /*
+            当in单独使用的时候是可以用来检测实例中是否含有此属性，只要该属性存在于原型中
+            或者实例中，都会返回true
+        */
+
+
+        //创建构造函数
+        function Person(){
+
+        }
+        //给构造函数的原型添加属性和方法
+        Person.prototype.name="朱一龙";
+        Person.prototype.age=23;
+        Person.prototype.sayName=function(){
+            alert(this.name);
+        }
+
+        //创建对象
+        var person1=new Person();
+        var person2=new Person();
+
+        alert("person1的name是"+person1.name);
+        alert(person1.hasOwnProperty("name"));
+        alert("name" in person1);
+
+        //给实例添加自己的属性
+        person1.name="小工业";
+        alert(person1.name);     //来自person1
+        alert(person1.hasOwnProperty("name"));
+        alert("name" in person1);
+
+        delete person1.name;
+        alert(person1.name);   //来自原型
+        alert(person1.hasOwnProperty("name"));
+        alert("name" in person1);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

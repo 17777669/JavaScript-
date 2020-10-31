@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            创建对象-构造器模式-对象的方法
+        </title>
+        <script>
+            function Person(name,age){
+                this.name=name;
+                this.age=age;
+                this.sayName=function(){
+                    alert("我是"+this.name);
+                }
+            };
+            var person1=new Person("猪八戒",12);
+            var person2=new Person("孙悟空",20);
+
+            person1.sayName();
+            person2.sayName();
+
+            alert(person1.sayName==person2.sayName);   //输出false
+        </script>
+    </head>
+</html>

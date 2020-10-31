@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内存泄漏</title>
+    <script>
+        // window.onload方法在整个页面加载完毕后调用
+        window.onload = function () {
+            //创建一个方法
+            function getId() {
+                var element = document.getElementById("nav");
+                // 给element方法添加点击事件
+                element.onclick = function () {
+                    //该闭包中保存着一个element元素，该element元素无法被销毁
+                    alert(element.id);
+                }
+            }
+            // 调用方法添加事件
+            getId();
+        }
+
+    </script>
+    <style>
+        #nav {
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        如果闭包中保存着一个HTML元素，那么意味着这个元素无法被销毁
+    </div>
+
+</body>
+
+</html>

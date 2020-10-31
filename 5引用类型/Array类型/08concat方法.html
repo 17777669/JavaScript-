@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>concat方法</title>
+</head>
+
+<body>
+    <script>
+        //concat方法不改变原来的数组，而是复制一个原来的数组，
+        //将值添加到副本后再返回一个新的数组
+        var arr1 = ['hello', 'bbb', 'ccc'];
+        var arr2 = ['cc', 'ss'];
+        var arr3 = arr1.concat('world', 'dd');
+        var arr4 = arr1.concat(arr2);
+        alert("数字arr1:" + arr1);
+        alert("数组arr3:" + arr3);
+        alert("数组arr4:" + arr4);
+    </script>
+</body>
+
+</html>

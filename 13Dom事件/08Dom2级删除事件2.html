@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom2级事件删除</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用注册方法来注册事件的元素，要删除该事件，要使用removeEventListener()方法来删除 -->
+    <!-- 注意如果是事件处理程序是匿名函数的话就 无法删除该事件-->
+
+    <div>
+
+    </div>
+    <script>
+        //获取元素
+        var div = document.querySelector("div");
+        //给元素绑定事件处理程序
+        div.addEventListener("click", function() {
+            alert("我是div盒子,事件处理程序是匿名函数，无法删除");
+        })
+        div.addEventListener("mouseover", changeColor);
+
+        function changeColor() {
+            this.style.backgroundColor = "red";
+        }
+        //删除事件
+        div.removeEventListener("click", function() {
+            alert("我是div盒子,事件处理程序是匿名函数，无法删除");
+        });
+        div.removeEventListener("mouseover", changeColor)
+
+        //removeEventListener方法不能删除匿名函数事件处理程序
+    </script>
+
+</body>
+
+</html>

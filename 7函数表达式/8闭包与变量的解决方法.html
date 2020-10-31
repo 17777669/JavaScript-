@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包和变量的解决方法</title>
+    <script>
+        // 闭包引用包含函数的变量，只能使用该变量的最后一个值，解决方法如下
+        function createFunction() {
+            //创建一个数组保存变量
+            var arr = new Array();
+            for (var i = 0; i < 10; i++) {
+                //在这里arr[i]保存的并不是匿名的函数，而是已经被调用的匿名函数的返回值
+                arr[i] = function (num) {
+                    return num;
+                }(i);  //匿名函数被调用，传入了一个参数i
+            }
+            return arr;
+        }
+        var rules = createFunction();
+        console.log(rules);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

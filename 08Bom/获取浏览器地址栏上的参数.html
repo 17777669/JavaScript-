@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="text" name="age">
+        <button>提交</button>
+    </form>
+
+    <script>
+        //获取地址栏上的信息
+        var strUrl = location.search;
+        var obj = {};
+        console.log(strUrl);
+        //剪掉第一个问号
+        var str = strUrl.substr(1);
+        //将字符串分隔为数组
+        var arr = str.split("&");
+        console.log(arr);
+        //循环数组，将数组中的每一项都按照=号再分隔一次
+        for (var i = 0; i < arr.length; i++) {
+            var newStr = arr[i].split("=");
+            console.log(newStr);
+            // 将获取的新数组的第一项作为对象的属性名，然后第二项为对象的属性值
+            obj[newStr[0]] = newStr[1];
+
+        }
+        console.log(obj);
+    </script>
+</body>
+
+</html>

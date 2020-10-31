@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数没有重载</title>
+</head>
+
+<body>
+    <!-- 什么是重载：方法名相同，但是形参不同 -->
+    <script>
+        var sum = function(num) {
+            return num + 200;
+        }
+        var sum = function(a) {
+            return a + 300;
+        }
+        document.write(sum(3)); //303
+
+
+        // Js中是没有函数重载的概念的， 后面的函数会覆盖前面的函数
+    </script>
+</body>
+
+</html>

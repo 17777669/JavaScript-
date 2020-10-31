@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代方法</title>
+</head>
+
+<body>
+    <!-- es5为数组添加了5个迭代方法
+        some()：判断数组中是否有某个数据，有的话就返回true,并且不会继续迭代
+        filter():返回一个符合条件的新数组，不改变原来的数组
+        forEach():迭代数组，获取数组中的每一项
+        map():对数组中的每一项给定函数，返回每次函数调用的结果组成的数组
+        every():对数组中的每一项给定函数，如果该函数对每一项都返回true，则返回true
+
+        方法里面的function都接受三个参数，参数1表示数组中的每一项，参数2表示每一项的索引，参数3表示数组自身，
+    -->
+    <script>
+        var arr = [2, 4, 10, 88, 90, 7];
+        // some方法的使用
+        var res1 = arr.some(function(value, index, arr) {
+            return value > 100;
+        })
+        console.log(res1); //false
+
+        //filter方法的使用
+        var res2 = arr.filter(function(value, index, arr) {
+            return value > 10;
+        })
+        console.log(res2); //[88,90]
+
+        //forEach方法的使用
+        var res3 = arr.filter(function(value, index, arr) {
+            console.log(value);
+        })
+
+        //map方法的使用
+        var res4 = arr.map(function(value, index, arr) {
+            return value + 10;
+        })
+        console.log(res4); //12, 14, 20, 98, 100, 17
+
+        //every方法的使用
+        var res5 = arr.map(function(value, index, arr) {
+            return value > 20;
+        })
+        console.log(res5); //false, false, false, true, true, false
+    </script>
+</body>
+
+</html>

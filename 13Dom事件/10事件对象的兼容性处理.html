@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象中的兼容性处理</title>
+</head>
+
+<body>
+
+    <!-- 在ie6-8中，是不会传递一个事件对象给事件处理程序的，如果要获取事件对象，
+        就可以使用window.event -->
+    <button id="button">
+           点击
+       </button>
+    <script>
+        var btn = document.getElementById("button");
+        btn.onclick = function(e) {
+            //如果没有传递事件对象进来，就获取window.event
+            var e = e || window.event;
+            console.log(e);
+        }
+    </script>
+</body>
+
+</html>

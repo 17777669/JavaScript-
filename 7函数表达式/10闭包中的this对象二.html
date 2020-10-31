@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包中的this对象二</title>
+    <script>
+        // 解决闭包中的this对象的问题,可以将包含函数的this赋值给闭包中的一个变量
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function () {
+                // 将外部函数的this赋值给that, 这样就可以访问外部函数的变量了
+                var that = this;
+                return function () {
+                    return that.name;
+                }
+            }
+        }
+
+        //object.getNameFunc()返回一个匿名函数
+        var fun = object.getNameFunc();
+        console.log(fun());  //My Object
+
+
+
+
+        /*arguments和this一样，如果要访问作用域中的arguments,必须要把函数中的arguments赋值
+        给函数可以访问的对象*/
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

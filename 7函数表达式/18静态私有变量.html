@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静态私有变量</title>
+
+    <script>
+        // 创建一个私有的作用域，在域中定义私有变量和函数
+        (function () {
+            // 创建私有变量
+            var privateVeriable = 10;
+            // 创建私有函数
+            function privateFunction() {
+                return false
+            }
+
+            //创建一个构造函数,给没有声明的变量直接初始化，该变量是属于全局的，可以在全局作用域中被访问到
+            MyObject = function () {
+
+            };
+            //共有的方法,该方法是一个闭包，保存着私有变量，和私有函数
+            MyObject.prototype.publicMethod = function () {
+                privateVeriable++;
+                return privateFunction();
+            }
+        })();
+
+        var obj = new MyObject();
+        console.log(obj.publicMethod());   //false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //使用字面量创建的数组是不会调用构造函数的
+        var arr;
+        arr = ['1', 2, 'ok'];
+
+        // 可以使用索引来访问数组的数据
+        // alert(arr[1]); //2
+
+        //数组的长度是可以动态变化的，可以给数组添加数据
+        // alert("数组的初始长度：" + arr.length)
+        // arr[3] = "张三";
+        // alert(arr.length + " " + arr[3]); //4 ,张三
+
+
+
+        //数组的length属性不是只读的，我们可以通过给属性来给数组的添加数据到最后一项
+        arr[arr.length] = "王五";
+        alert(arr.length + " " + arr[3]); //4,王五
+    </script>
+</body>
+
+</html>

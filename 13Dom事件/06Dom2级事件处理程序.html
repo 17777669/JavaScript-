@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Dom2级事件处理程序是使用addEventListener方法添加事件，使用removeEventListener方法删除事件 
+        addEventListener(事件类型，事件处理程序，布尔值)
+        事件类型：代表着事件的类型，和Dom0级不同的是前面不用加on
+        事件处理程序：
+        布尔值：true代表着在捕获阶段进行，false是代表着在冒泡阶段进行,true是代表着在捕获阶段，默认是false
+        该方法添加的事件处理程序是只能被removeEventListener方法删除
+
+
+        removeListener(事件类型，事件处理程序，布尔值)：该方法是删除addEventListener添加的事件，
+        而且它的参数必须和addEventListener方法的一摸一样
+
+        
+    -->
+    <button>点击</button>
+    <script>
+        //1.获取元素
+        var btn = document.querySelector("button");
+        //2.监听注册事件
+        btn.addEventListener('click', function() {
+            alert("这是第一个事件处理程序");
+        })
+        btn.addEventListener("click", function() {
+            alert("这是第二个事件处理程序");
+        })
+    </script>
+</body>
+
+</html>

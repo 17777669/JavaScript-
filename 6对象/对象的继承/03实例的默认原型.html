@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实例的默认原型</title>
+</head>
+
+<body>
+    <!-- 实现原型链的基本模式 -->
+    <script>
+        //创建一个父级构造函数
+        function SuperType() {
+            this.property = true;
+        }
+        //给父级添加一个方法
+        SuperType.prototype.getSuperValue = function() {
+            return this.property;
+        }
+
+        //创建一个子级构造函数
+        function SubType() {
+            this.subValue = false;
+        }
+        //实现继承,使子级对象的原型是父级构造函数都的一个实例，这样子级实例对象也可以使用父级的方法了
+        //不能直接将父级的原型对象赋值给子级，不然当修改子级的方法时候，父级也会被修改
+        SubType.prototype = new SuperType();
+        //给子级添加自己的方法
+        SubType.prototype.getSubValue = function() {
+            return this.subValue;
+        }
+
+        var sub = new SubType();
+
+        console.log(sub instanceof SubType); //true
+        console.log(sub instanceof SuperType); //true
+        console.log(sub instanceof Object); //true
+    </script>
+</body>
+
+</html>

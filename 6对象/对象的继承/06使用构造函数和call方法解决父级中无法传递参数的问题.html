@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建构造函数
+        function SuperType(name, age) {
+            this.age = age;
+            this.name = name;
+        }
+        //创建子级构造函数
+        function SubType(name, age, sex) {
+            //1.利用构造函数实现实例属性的继承
+            //执行SuperType中的代码，并将它其中的代码的this执行代换为SubType创建的实例
+            SuperType.call(this, name, age);
+            this.sex = sex;
+        }
+        //将子级的原型指向父级创建的实例
+        //2.使用原型链实现方法和属性的继承
+        SubType.prototype = new SuperType();
+        //创建子级
+        var sub1 = new SubType("张三", 20, "男");
+        //输出结果
+        // age: 20
+        // name: "张三"
+        // sex: "男"
+        console.log(sub1);
+    </script>
+</body>
+
+</html>

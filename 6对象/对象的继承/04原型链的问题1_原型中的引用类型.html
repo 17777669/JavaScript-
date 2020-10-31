@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型中的引用类型</title>
+</head>
+
+<body>
+    <script>
+        //创建一个父级构造函数
+        function SuperType() {
+            //创建一个引用类型的成员变量
+            this.arr = ["pink", "blue", "red"];
+        }
+        //创建一个子级构造函数
+        function Subtype() {
+
+        }
+        //使子级的原型指向父级构造的一个实例
+        Subtype.prototype = new SuperType();
+
+        //创建一个子级对象
+        var sub1 = new Subtype();
+        console.log(sub1.arr); //"pink", "blue", "red"
+        //修改sub1中arr的值
+        sub1.arr.push("black");
+
+        //创建另一个对象,可以发现sub2的arr也被修改了
+        var sub2 = new Subtype();
+        console.log(sub2.arr); //"pink", "blue", "red", "black"
+    </script>
+</body>
+
+</html>

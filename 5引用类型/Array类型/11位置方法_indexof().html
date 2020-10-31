@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位置方法</title>
+</head>
+
+<body>
+    <!-- indexof(value,index)方法:
+        返回value的索引位置，没有找到就返回-1
+        value表示要查找的项，
+        而index表示从index位置开始查找 -->
+    <!-- lastindexof(value,index)方法:
+        返回value的索引位置，没有找到就返回-1
+        value表示要查找的项，
+        而index表示从index位置开始查找 -->
+    <!-- 这两个方法都是使用全等符号 -->
+    <script>
+        var arr = [2, 4, 5, 2, 7, 8];
+        var index1 = arr.indexOf(0, 4);
+        var index2 = arr.lastIndexOf(5, 2);
+        document.write(index1); //-1
+        document.write(index2); //2
+    </script>
+</body>
+
+</html>

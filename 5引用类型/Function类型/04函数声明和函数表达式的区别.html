@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数表达式和函数声明的区别</title>
+</head>
+
+<body>
+    <!-- 使用function声明的函数会被解析器提前读取，因此它可以提前（函数声明之前）被访问
+        使用函数表达式创建的函数不会被解析器提前读取，它不可以被提前访问
+    -->
+
+    <!-- 对于JS引擎，无论作用域中的声明（var，function）出现在什么地方，都将在代码本身被执行前首先进行处理。
+    即所有声明（变量和函数）都会被“移动”到各自作用域的最顶端，该过程称为“提升” -->
+    <!-- 因为定义声明是在编译阶段进行的，而赋值声明是在执行阶段进行的 -->
+    <script>
+        //提前访问函数
+        myFun1(100); //输出200
+        document.write(myFun2) //undefined,已经声明但是没有进行赋值
+        myFun2(100); // myFun2 is not a function
+
+
+
+
+        //使用function创建函数
+        function myFun1(num) {
+            document.write(num + 100);
+        }
+        //使用函数表达式创建函数
+        var myFun2 = function(num) {
+            document.write(num + 100);
+        }
+    </script>
+</body>
+
+</html>

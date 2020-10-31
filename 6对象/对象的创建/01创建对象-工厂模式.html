@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta  charset="UTF-8">
+        <title>创建对象的几种方式-工厂模式</title>
+        <script>
+            function createPerson(name,age,job){
+                var obj=new Object();
+                obj.name=name;
+                obj.age=age;
+                obj.job=job;
+                obj.sayName=function(){
+                    alert("我的名字是"+this.name);
+                }
+
+                return obj;
+            }
+
+            var person1=createPerson("猪八戒",28,"医生");
+            var person2=createPerson("孙悟空",18,"教师");
+
+            person1.sayName();
+            person2.sayName();
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

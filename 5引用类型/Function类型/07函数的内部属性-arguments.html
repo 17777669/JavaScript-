@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的内部属性arguments</title>
+</head>
+
+<body>
+    <!--js中调用函数时候传入的参数可以和定义的形参个数不同 
+        js中传入函数的实际参数可以使用arguments来访问，
+        arguments是一个伪类数组，保存着实际传入函数的参数-->
+    <script>
+        function sum(a, b) {
+
+            document.write('实际传入的参数个数为：' + arguments.length); //4
+            document.write('第一个参数为：' + arguments[1]) //3
+        }
+
+        // sum(1, 3, 4, 5);
+
+        //当传入的实参个数小于形参个数的时候，没有被传值的形参值为undefined
+        sum(2);
+    </script>
+</body>
+
+</html>

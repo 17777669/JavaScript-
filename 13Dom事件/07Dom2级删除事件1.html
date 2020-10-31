@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除事件处理</title>
+</head>
+
+<body>
+    <!-- 使用addEventListener方法添加的事件只能被removeEventListener方法删除，参数必须一摸一样 -->
+    <button>点击我</button>
+
+    <script>
+        //1.获取事件元素
+        var btn = document.querySelector("button");
+        //2.给元素添加注册监听
+        btn.addEventListener("click", function() {
+            alert("这是第一个事件处理程序");
+
+        });
+        //3.删除事件，无用
+        btn.removeEventListener("click", function() {
+            alert("这是第二个事件处理程序");
+        });
+    </script>
+</body>
+
+</html>

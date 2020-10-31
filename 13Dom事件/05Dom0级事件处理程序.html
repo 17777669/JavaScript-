@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom0事件处理程序</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Dom0级事件是直接给元素添加事件处理程序 
+        添加事件：element.事件类型
+        删除事件：element.事件类型=null
+    -->
+    <div>
+
+    </div>
+    <script>
+        //1.获取元素
+        var div = document.querySelector("div");
+        //2.添加事件处理程序
+        div.onclick = function() {
+            alert("这是div元素");
+        };
+        //Dom0级事件处理程序，只能添加一个事件处理程序，添加多个的时候，后面的会覆盖前面的
+        div.onclick = function() {
+            alert("这是第二个事件处理程序");
+        }
+
+
+        //删除事件 element.onclick=null;
+        div.onclick = null;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包与变量</title>
+    <script>
+        function createFunctions() {
+            // 创建一个数组
+            var relues = new Array();
+            for (var i = 0; i < 10; i++) {
+                // 数组的0-10项都存放了一个函数,该函数返回i,返回后i也变为了10，i不会被销毁，
+                //因为i被返回的函数调用中，它的值也保存在10不变
+                //i是属于createFunction函数的变量，
+                //闭包只能取得i的最后一个值，也就是10
+                relues[i] = function () {
+                    return i;
+                }
+            }
+            // 返回数组
+            return relues;
+        }
+        //返回一个数组，数组的每一项都包含了一个函数:
+        // function(){
+        // 这个i是作用域链上的createFunction()函数中的值
+        //     retrun i;
+        // }
+        var relues = createFunctions();
+
+
+
+
+
+        // 调用数组的0-6项函数
+        // console.log(createFunctions()[0]());  //10
+        // console.log(createFunctions()[1]());  //10
+        // console.log(createFunctions()[2]()); //10
+
+    </script>
+</head>
+
+<body>
+    <!-- 因为作用域链的原因，闭包只能取得包含函数中的变量的最后一个值， -->
+</body>
+
+</html>

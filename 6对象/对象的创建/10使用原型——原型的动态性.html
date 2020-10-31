@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型的动态性</title>
+    <script>
+        /*
+            原型的动态性是值，创建了一个实例后，再给构造函数的原型添加属性或者方法，
+            实例调用原型的方法任然可以访问到。
+            原理：实例可以访问到新添加的原型的方法，是因为实例与原型之间的松耦合关系，
+                当在实例的找不到方法时，会去构造方法的原型中找该方法
+        */
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        var person=new Person("张三",23);
+        //给原型添加方法
+        Person.prototype.sayName=function(){
+            console.log("原始的原型添加方法")
+            console.log(this.name);
+        }
+        //实例调用原型的方法
+        person.sayName();
+
+
+        /*
+            注意：如果是在重写整个原型的话，实例就不能访问到原型中新添加的方法，因为在创建实例的时候，
+                构造函数给实例添加了一个[[prototype]]的属性，该属性是指向构造函数的原型，如果重写了
+                整个原型的话，该属性[[prototype]]就不是指向新的原型了，当新的原型中添加方法属性实例不能访问到
+        */
+
+        console.log("重写新的原型-----------------------");
+        Person.prototype={
+            sayAge:function(){
+                console.log("这是新原型的方法");
+                console.log(this.say);
+            }
+        }
+        person.sayAge();    //出错
+
+
+
+        /*
+            总结：重写了原型后，将切断原来已有的实例和新原型之间的联系，原来已有的实例还是指向旧的原型对象
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

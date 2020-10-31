@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+
+<body>
+    <!-- 事件委托是为了解决给每一类型的元素添加过多的事件处理程序，
+        事件委托是利用了事件冒泡，只给父级元素指定一个事件，解决某一类型子类的的所有事件
+    -->
+    <ul>
+        <li>这是li1</li>
+        <li>这是li2</li>
+        <li>这是li3</li>
+        <li>这是li4</li>
+        <li>这是li5</li>
+        <li>这是li6</li>
+        <li>这是li7</li>
+        <li>这是li8</li>
+        <li>这是li9</li>
+        <li>这是li10</li>
+    </ul>
+    <script>
+        var ul = document.querySelector("ul");
+        var lis = document.querySelectorAll("li");
+
+        //给li添加事件，点击li就弹出一个提示信息
+
+        //传统做法,使用for循环来添加事件处理程序
+        // for (var i = 0; i < lis.length; i++) {
+        //     // i+1是因为索引从0开始的
+        //     lis[i].setAttribute("index", i + 1);
+        //     lis[i].onclick = function() {
+        //         var index = this.getAttribute("index");
+        //         console.log(index);
+        //         alert("这是第" + index + "个元素");
+        //     }
+        // }
+        //
+
+        //使用事件委托，将事件处理程序添加到父级元素上，利用冒泡
+        ul.onclick = function(e) {
+            console.log(e.target);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout方法</title>
+</head>
+
+<body>
+    <!-- clearTimeout(要取消的定时器id)
+    要执行的代码可以是JavaScript代码，也可以是函数名，还可以是字符串"函数名（）"的形式，
+    如果传入的函数要有参数，就使用第三中形式 -->
+    <button>点击按钮，3秒后显示提示框</button>
+    <button id="close">取消提示框</button>
+    <script>
+        var btn = document.querySelector("button");
+        var closeBtn = document.querySelector("#close");
+
+        btn.onclick = function() {
+            //setTimeout方法会返回一个定时器ID，用来区分定时器
+            time1 = setTimeout(function() {
+                alert("已经过了3秒了")
+            }, 3000);
+
+        }
+        closeBtn.onclick = function() {
+            clearTimeout(time1);
+            console.log("已经取消");
+        }
+    </script>
+</body>
+
+</html>

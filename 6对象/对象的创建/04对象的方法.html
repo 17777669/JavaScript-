@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            创建对象-构造器模式-对象的方法定义
+        </title>
+        <script>
+
+            function sayName(){
+                alert(this.name);
+            }
+
+            function Person(name,age){
+                this.name=name;
+                this.age=age;
+                //this.sayName=sayName();这个样是错误的，（）是调用方法
+                this.sayName=sayName;
+            }
+
+            var person1=new Person("猪八戒",29);
+            var person2=new Person("孙悟空",20);
+
+            person1.sayName();
+            person2.sayName();
+
+            alert(person2.sayName==person1.sayName);    //true
+        </script>
+    </head>
+</html>

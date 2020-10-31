@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           使用原型-原型赋值和对象赋值 
+        </title>
+        <script>
+            //构造函数
+            function Person(){
+
+            }
+
+            //给构造函数的原型添加属性和方法
+            Person.prototype.name="猪八戒";
+            Person.prototype.age=20;
+            Person.prototype.sayName=function(){
+                alert(this.name);
+            }
+
+            //创建对象
+            var person1=new Person();
+            var person2=new Person();
+            
+            //使用原型的值
+            person1.sayName();
+            person2.sayName();
+
+            //给对象的属性赋值（不会覆盖原型的name值）
+            person2.name="孙悟空";
+
+            person1.sayName();           //猪八戒，来自原型
+            person2.sayName();           //孙悟空，来自对象自己的值
+
+            delete person2.name;         //删除person2的name值不会删除掉原型的值
+            person2.sayName();           //猪八戒，
+
+
+            /*
+                总结：当对象没有自己的name值时候，会寻找原型的name值，给对象赋一个属性，如果属性名和原型的属性名相同时候
+                不会修改原型的属性值
+            */
+        </script>
+    </head>
+    <body>
+        
+
+    </body>
+</html>

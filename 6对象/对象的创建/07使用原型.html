@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            判断属性的位置是在原型中还是构造器中
+        </title>
+        <script>
+            //使用Object.hasOwnProperty()方法可以判断这个属性该对象中有没有
+
+
+            //构造函数
+            function Person(){
+
+            };
+            //给构造函数的原型赋值
+            Person.prototype.name="猪八戒";
+            Person.prototype.age=20;
+            Person.prototype.sayName=function(){
+                alert(this.name);
+            };
+
+            //创建对象
+            var person1=new Person();
+            var person2=new Person();
+
+            alert(person2.hasOwnProperty("name"));  //false,person2中没有name这个属性
+
+            //给对象2添加自己的属性
+            person2.name="孙悟空";
+            alert(person2.hasOwnProperty("name"));  //true,person2中有name这个属性
+
+            //判断对象1中是否有自己的属性name
+            alert(person1.hasOwnProperty("name"));   //false
+
+            //删除person2中的name属性
+            delete person2.name;
+            alert(person2.hasOwnProperty("name"));   //false,person2中的names属性已经被删除
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

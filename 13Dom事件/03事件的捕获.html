@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的捕获</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>这是li1</li>
+        </ul>
+    </div>
+    <script>
+        //1.获取元素
+        var div = document.querySelector('div');
+        var ul = document.querySelector("ul");
+        var li = document.querySelector("li");
+
+
+        //2.添加事件处理查询
+        //Dom2级事件处理程序element.addEventListen(事件类型，事件处理程序，事件的执行)
+        div.addEventListener('click', function() {
+            alert("这是div元素")
+        }, true);
+        ul.addEventListener('click', function() {
+            alert("这是ul元素")
+        }, true);
+        li.addEventListener('click', function() {
+            alert("这是li元素")
+        }, true);
+
+        // 事件捕获：从最顶层的元素开始，然后再向下执行，然后直到最具体的元素
+    </script>
+</body>
+
+</html>

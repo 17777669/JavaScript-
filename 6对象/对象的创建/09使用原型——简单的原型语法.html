@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单的原型语法</title>
+    <script>
+        //在之前的例子中，每次给原型添加属性都要使用Person.prototype，为了减少不必要的输入，可以使用一个包含了属性和
+        //方法的对象来重写整个原型对象，如下
+        function Person(){
+
+        }
+
+        /*
+            注意：这样写的话Person.prototype中的constructor属性就不指向Person对象了,而是指向Obj
+        */
+        Person.prototype={
+            //如果constructor的值很重要，可以重新设置它的值，重新设置的值默认是可以枚举出来的，原生的是不可以枚举 的
+            construnctor:Person,
+            name:"Nicholas",
+            age:29,
+            job:"教师",
+            sayName:function(){
+                console.log(this.name);
+            }
+        }
+        var friend=new Person();
+        console.log("friend对象使用instanceof操作符检测是否属于Object类型")
+        console.log(friend instanceof Object);
+        console.log("friend对象使用instanceof操作符检测是否属于Person类型")
+        console.log(friend instanceof Person);
+        console.log("==================================");
+        console.log("friend对象使用constructor属性检测是否属于Object类型")
+        console.log(friend.construnctor== Object);
+        console.log("friend对象使用constructor检测是否属于Person类型")
+        console.log(friend.construnctor== Person);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

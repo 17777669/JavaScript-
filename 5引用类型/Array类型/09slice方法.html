@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slice方法</title>
+</head>
+
+<body>
+    <!-- 数组名.slice(索引的位置，元素个数)方法接受两个参数,
+    该方法是不改变原来是数组的，slice（a,b）：从a处开始，截取到b位置前的元素组成一个新的数组，
+        如果只有一个参数，那么就获取从这个位置开始的所有元素组成一个新的数组
+-->
+    <script>
+        var arr = [2, 3, 4, 2, 1, 5];
+        var arr1 = arr.slice(1);
+        var arr2 = arr.slice(1, 4);
+        console.log(arr);
+        console.log(arr1);
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200%;
+            margin: 100px auto;
+        }
+        
+        div span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: aquamarine;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div>距离国庆还有:<br/>
+        <span id="d"></span>
+        <span id="h"></span>
+        <span id="f"></span>
+        <span id="s"></span>
+    </div>
+
+    <script>
+        //获取元素
+        var d = document.querySelector("#d");
+        var h = document.querySelector("#h");
+        var f = document.querySelector("#f");
+        var s = document.querySelector("#s");
+
+
+        //获取倒计时的函数
+        function getTime(newDate) {
+            //获取当前的事件
+            var nowDate = new Date();
+            //获取未来的倒计时事件
+            var fDate = new Date(newDate);
+
+            //获取时间搓，获取的是毫秒，将毫秒转为秒
+            var time = (fDate.getTime() - nowDate.getTime()) / 1000;
+            //获取天
+            var dtime = Math.floor((time / 60 / 60 / 24)).toString().padStart(2, '0');
+            var htime = Math.floor((time / 60 / 60 % 24)).toString().padStart(2, '0');
+            var ftime = Math.floor((time / 60 % 60)).toString().padStart(2, '0');
+            var stime = Math.floor((time % 60)).toString().padStart(2, '0');
+            console.log(d)
+
+            //将获取到的时间给盒子
+            d.innerHTML = dtime;
+            h.innerHTML = htime;
+            f.innerHTML = ftime;
+            s.innerHTML = stime;
+        }
+        getTime('2020-10-1 0:0:0');
+        setInterval("getTime('2020-10-1 0:0:0')", 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建一个父级
+        function SuperType() {
+            this.arr = ["pink", "black", "red"];
+        }
+        //创建子级
+        function SubType() {
+            //使用call调用父级方法，使父级中的引用类型的this执行SubType的实例
+            //SuperType也是一段代码，只有再使用new来调用它的时候，它才会作为构造函数使用
+            //call方法的作用：fun.call(obj,参数1，参数2，....)
+            //  1，调用fun方法，执行里面的代码
+            //  2，将fun方法里的this指向obj对象
+            SuperType.call(this);
+        }
+
+        //把子级方法原型指向父级的实例,为了继承父级的方法
+        SubType.prototype = new SuperType();
+
+        //创建一个实例
+        var sub1 = new SubType();
+        var sub2 = new SubType();
+
+        //修改实例1中的变量
+        sub1.arr.push("black");
+        console.log(sub1.arr); //"pink", "black", "red", "black"
+        console.log(sub2.arr); //"pink", "black", "red"
+    </script>
+</body>
+
+</html>

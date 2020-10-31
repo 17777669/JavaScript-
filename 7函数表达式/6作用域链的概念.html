@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域链的概念</title>
+    <script>
+        /*
+            什么是作用域链？
+                当函数被调用的时候，会创建一个执行环境和相应的作用域链，并把作用域链赋值给一个特殊的内部属性[[scope]],
+            然后使用this,arguments,value1,value2初始化函数的活动对象，在作用域链中，外部环境处于作用域链的第二层，外部
+            环境的外部环境处于第三层  
+        */
+
+        function compare(value1, value2) {
+            if (value1 < value2) {
+                return -1;
+            } else if (value1 > value2) {
+                return 1;
+            } else {
+                return 1
+            }
+        }
+
+        var relues = compare(5, 10);
+
+        /*
+            在上面的函数中，compare函数被调用时候，创建了一个执行环境和对应的作用域链，
+            并且使用this,arguments，value1,value2初始化作用域链,全局环境中的变量（this,relues,compare）
+            在作用域链的第二层
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

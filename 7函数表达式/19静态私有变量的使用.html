@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静态私有变量的缺点</title>
+    <script>
+        //创建一个私有作用域
+        (function () {
+            // 创建一个私有变量
+            var name = "";
+            // 创建一个全局函数
+            Person = function (value) {
+                name = value;
+            };
+            // 给全局变量的原型添加方法，该方法是一个闭包，可以访问私有变量
+            Person.prototype.getName = function () {
+                return name;
+            };
+            Person.prototype.setName = function (value) {
+                name = value;
+            };
+        })();
+
+        var person1 = new Person("猪八戒");
+        console.log(person1.getName());   //猪八戒
+
+        var person2 = new Person("孙悟空");
+        console.log(person1.getName());  //孙悟空
+        console.log(person2.getName());  //孙悟空
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

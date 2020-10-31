@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout方法</title>
+</head>
+
+<body>
+    <!-- setTimeout(要执行的代码，经过多少毫秒后执行（毫秒）)
+    要执行的代码可以是JavaScript代码，也可以是函数名，还可以是字符串"函数名（）"的形式，
+    如果传入的函数要有参数，就使用第三中形式 -->
+    <button>点击按钮，3秒后显示提示框</button>
+    <script>
+        var btn = document.querySelector("button");
+        btn.onclick = function() {
+            setTimeout(function() {
+                alert("已经过了3秒了")
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

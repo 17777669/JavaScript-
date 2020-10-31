@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数提升</title>
+    <script>
+        // 理解函数提升的关键就是理解函数声明和函数表达式之间的区别。
+        //这样写式无效的，JavaScript
+        // if(condition){
+        //     function sayYes(){
+        //         console.log("Yes");
+        //     }
+        // }else{
+        //     function sayNo(){
+        //         console.log("No");
+        //     }
+        // }
+
+        //可以这样写
+        var sayHi;
+        if(condition){
+            sayHi=function(){
+                console.log("Yes");
+            }
+        }else{
+            sayHi=function(){
+                console.log("No");
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

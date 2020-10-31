@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript中没有块级作用域</title>
+    <script>
+        // javascript中式没有块级作用域的，如果在语句中创建的变量实际上是在函数中创建的，如下：
+        function getI() {
+            for (var i = 0; i < 10; i++) {
+
+            };
+            // 在此处也可以访问到i的值
+            console.log(i);
+
+
+            // javascript不会提醒你是否多次声明了同一个变量，它会对后面的声明视而不见，
+            // 重新声明一个i
+            var i;
+            console.log(i);
+
+            // 但是JavaScript会执行对变量的初始化
+            i = 20;
+            console.log(i);
+        }
+        getI();    //输出10
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

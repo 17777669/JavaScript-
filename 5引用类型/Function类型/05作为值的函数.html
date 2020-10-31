@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作为值的函数</title>
+</head>
+
+<body>
+    <!-- 因为函数名是一个指向函数的指针，函数也可以当作一个值来使用 -->
+    <script>
+        //创建一个函数，形参1表示一个被传进来的函数，形参2表示被传进来的函数的参数
+        function callSomeFunction(someFunction, someArgument) {
+            //返回一个函数
+            return someFunction(someArgument);
+        }
+
+        function add10(num) {
+            return num + 10;
+        }
+        var res1 = callSomeFunction(add10, 200);
+        document.write(res1); //210
+    </script>
+</body>
+
+</html>

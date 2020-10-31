@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>访问函数中的私有变量</title>
+    <script>
+        function MyFunction() {
+            var name = "孙悟空";
+            function sayName() {
+                console.log("这是私有方法");
+                // this.name相对于Object.name，是不可以访问到的
+                console.log(name);
+            }
+
+            //特权方法（可以访问函数中的私有变量）
+            this.sayName1 = function () {
+                console.log("这是公有方法-----")
+                sayName();
+            }
+        }
+        var fun = new MyFunction();
+        // 直接访问函数的私有变量是无法访问到的
+        console.log(fun.name);    //undefined  
+        console.log(fun.sayName); //undefined
+
+        fun.sayName1();   //孙悟空
+
+
+    </script>
+</head>
+
+<body>
+    <h3>访问函数中的私有变量？</h3>
+    <p>
+        可以在函数中设置一个闭包，在闭包中访问函数的私有变量，因为闭包中含有包含函数的作用域，
+        所有可以访问函数中的私有变量
+    </p>
+</body>
+
+</html>

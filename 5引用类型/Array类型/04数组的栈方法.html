@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 栈是一种先进先出的数据结构，它元素的添加和删除都只发生子啊一个位置——栈的顶部，最新添加的项是最早被移除的 -->
+    <script>
+        // ECMAScript提供了两个方法来模拟栈：
+        // arr.push(任意数量的参数)：把他们逐个的添加到数组的末尾，返回数据的最新长度
+        // arr.pop():从数组末尾移除最后一项，返回移除的项
+
+        var arr = [1, 2, 3, 'aa', 'gg'];
+        var len = arr.push('55', '66', 'hello');
+        alert("数组的长度：" + len + "数组的元素" + arr);
+
+
+        var item = arr.pop();
+        alert(`数组的元素有${arr},删除的数据为${item}`);
+    </script>
+</body>
+
+</html>

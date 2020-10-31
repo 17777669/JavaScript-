@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>创建对象的方式——构造器模式</title>
+        <script>
+            function Person(name,age,job){
+                this.name=name;
+                this.age=age;
+                this.job=job;
+                this.sayName=function(){
+                    alert(this.name+"的职位是："+this.job);
+                }
+            }
+
+            var person1=new Person("猪八戒",28,"医生");
+            var person2=new Person("孙悟空",18,"教师");
+
+            //普通调用
+            //person1.sayName();
+            //person2.sayName();
+
+
+            //将构造函数当作普通函数来使用的时候
+            //Person("沙和尚",38,"服务员");   //添加到window中去了
+           // window.sayName();
+
+           //将构造函数放在另一个对象中使用
+           var o=new Object();
+           Person.call(o,"Kirs",25,"Nurse");
+           o.sayName();     //Kirs的职位是：Nurse
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
